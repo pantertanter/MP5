@@ -1,6 +1,7 @@
 import streamlit as st
 from docx import Document
 
+
 # ------------------functions to load documents----------------
 
 def load_docx(path):
@@ -16,7 +17,7 @@ doc_text = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
 st.text_area("Document Content", value=doc_text, height=400)
 
 def load_text_file(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         text = file.read()
     return text
 
@@ -31,3 +32,6 @@ def vect(sent, corpus):
     for word in sent:
         mydict[word] = 1
     return mydict    
+
+
+
